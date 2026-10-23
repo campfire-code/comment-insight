@@ -1,0 +1,13 @@
+{
+  "id": "c31",
+  "slug": "comment-insight",
+  "name": "评论情绪与需求分析",
+  "version": "0.1.0",
+  "repo": "campfire-code/comment-insight",
+  "license": "MIT",
+  "ui": {
+    "layout": "c",
+    "palette": "rose"
+  },
+  "upstream": null
+}
