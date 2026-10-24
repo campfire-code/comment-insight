@@ -7,6 +7,7 @@ import {
   reportSheets, summarize, type Comment, type Detail, type Judged, type Suggestion,
 } from './core';
 import { readSheets, writeXlsx } from './xlsx';
+import { Empty, ResultBody } from './Insight';
 
 const COMMENT_KEYWORDS = [/^(评论|留言|回复)(内容)?$/, /评论内容|留言内容|评论文本/, /评论|留言|弹幕/, /^内容$/, /comment|content|text/i];
 const WORK_KEYWORDS = [/^(作品|视频|笔记|文章)(标题|名称)?$/, /作品|视频标题|笔记标题|文章标题/, /^标题$/, /title/i];
@@ -50,9 +51,11 @@ const tool: BatchTool = {
   category: '内容生产',
   type: 'text',
   mode: 'batch',
-  resultView: 'table',
+  resultView: 'cards',
   columns: [['total', '评论'], ['analyzed', '已分析'], ['senti', '正面 / 中性 / 负面'], ['top', '最多的需求']],
   needsLLM: true,
+  Empty,
+  ResultBody,
   concurrency: 1,
   accept: { label: '评论表格', extensions: ['xlsx', 'csv', 'xls'] },
   params: [

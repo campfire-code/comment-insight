@@ -49,6 +49,7 @@ export function parseCount(v: Cell): number | null {
   return Math.round(Number(m[1]) * (m[2] ? 10000 : 1));
 }
 
+// check-zh: 忽略（写给大模型的提示词，里面的英文是 JSON 字段名，必须保留）
 export const SYSTEM_PROMPT = `你是新媒体运营分析师，分析账号主自己作品下的用户评论。对每条评论判断：
 1. sentiment 情绪倾向：只能是「正面」「中性」「负面」之一。单纯提问、陈述算中性；阴阳怪气、反讽算负面。
 2. emotion 细分情绪：只能从「${EMOTIONS.join('、')}」里选一个。
